@@ -1,0 +1,30 @@
+FUNCTION produitscalaire(a,b : ARRAY_OF INTEGER[]) : INTEGER
+VAR
+    i : INTEGER;
+    sum : INTEGER;
+BEGIN
+    FOR i FROM 1 TO a.length STEP 1  DO
+        sum = sum + a[i]*b[i];
+    END_FOR
+
+    RETURN sum ;
+END
+
+ALGORITHM calculorthogonal
+VAR
+    T1 : ARRAY_OF INTEGER[3] := [2,4,5];
+    T2 : ARRAY_OF INTEGER[3] := [2,4,5];
+    x : INTEGER := 0;
+BEGIN
+    IF (T1.length<>T2.length) THEN
+        write ("Error")
+    ELSE
+        x := produitscalaire(T1,T2);
+        IF (x = 0) THEN
+            write("orthogonal");
+        ELSE
+            write("non orthogonal");
+        END_IF
+    END_IF
+    
+END
